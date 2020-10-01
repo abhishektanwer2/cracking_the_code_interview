@@ -1,0 +1,46 @@
+Given a string, write a function to check if it is a permutation of
+a palindrome. A palindrome is a word or phrase that is the same forwards and backwards. A
+permutation is a rearrangement of letters. The palindrome does not need to be limited to just
+dictionary words.
+EXAMPLE
+Input: Tact Coa
+Output: True (permutations:"taco cat'; "atco cta'; etc.)
+
+Solution:
+
+public class PermutationPalindrome {
+    public static void main(String []args){
+        String inputstring="aba aba";
+        System.out.print(isPermutationPalindrom(inputstring));
+
+    }
+    public static boolean isPermutationPalindrom(String inputstring){
+        String input=inputstring.replaceAll("\\s","").toLowerCase();
+      LinkedHashMap<Character,Integer>map=new LinkedHashMap<>();
+        for(int i=0;i<input.length();i++){
+            if(map.containsKey(input.charAt(i))){
+                map.put(input.charAt(i),map.get(input.charAt(i))+1);
+            }
+            else{
+                map.put(input.charAt(i),1);
+            }
+        }
+
+        Iterator<Map.Entry<Character, Integer>> it = map.entrySet().iterator();
+int count=0;
+        while (it.hasNext()) {
+            Map.Entry<Character, Integer> set = it.next();
+
+            if(set.getValue()%2==1){
+                count++;
+            }
+            else{
+                count--;
+            }
+
+        }
+
+
+        return count<=1;
+    }
+}
