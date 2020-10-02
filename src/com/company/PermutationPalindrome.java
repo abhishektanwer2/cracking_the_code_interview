@@ -1,11 +1,8 @@
 package com.company;
-
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.function.BiConsumer;
-import java.util.function.Function;
+
 
 public class PermutationPalindrome {
     public static void main(String []args){
@@ -22,6 +19,7 @@ public class PermutationPalindrome {
             }
             else{
                 map.put(input.charAt(i),1);
+            
             }
         }
 
