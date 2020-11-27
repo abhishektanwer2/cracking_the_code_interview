@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.utils.Allfuctions;
 import com.company.utils.Node;
 
 import java.time.Duration;
@@ -23,15 +24,15 @@ public class LinkedListDeleteMiddleNode {
 
 
 
-
-
-
     }
 
-    private static Node deleteMiddleNode(Node head) {
+    private static boolean deleteMiddleNode(Node givennode) {
+        if(givennode==null||givennode.next== null){return false;}
+        Node nextnode=givennode.next;
+        givennode.data=nextnode.data;
+        givennode.next=nextnode.next;
+        return true;
 
 
-
-        return head;
     }
 }

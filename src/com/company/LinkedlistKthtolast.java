@@ -15,7 +15,7 @@ public class LinkedlistKthtolast {
 
         Instant start= Instant.now();
         int k=2;
-     System.out.println(kthelementfromlast(head,k));
+     System.out.println(kthelementfromlastrecursive(head,k));
         Instant end= Instant.now();
 
         Duration difference = Duration.between(start,end);
