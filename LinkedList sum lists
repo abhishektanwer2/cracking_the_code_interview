@@ -1,0 +1,51 @@
+Sum Lists: You have two numbers represented by a linked list, where each node contains a single
+digit. The digits are stored in reverse order, such that the 1 's digit is at the head of the list. Write a
+function that adds the two numbers and returns the sum as a linked list.
+EXAMPLE
+Input: (7-> 1 -> 6) + (5 -> 9 -> 2).That is,617 + 295.
+Output: 2 -> 1 -> 9. That is, 912.
+
+Solution:
+public class LinkedListSumlists {
+    public static void main(String []args){
+        Node list1=new Node(7);
+        list1.next=new Node(1);
+        list1.next.next=new Node(6);
+        Node list2=new Node(5);
+        list2.next=new Node(9);
+        list2.next.next=new Node(2);
+
+
+        Instant start= Instant.now();
+        Allfuctions.printLinkedList(sumLinkedlist(list1,list2,0));
+        Instant end= Instant.now();
+
+        Duration difference = Duration.between(start,end);
+        System.out.println(difference.toNanos());
+
+
+
+    }
+    private static Node sumLinkedlist(Node list1, Node list2,int carry)
+    {if(list1==null &&list2==null&&carry==0){
+        return null;
+    }
+    Node result=new Node();
+    int value=carry;
+    if(list1!=null){
+        value+= list1.data;
+    }
+        if(list2!=null){
+            value+= list2.data;
+        }
+        result.data=value%10;
+        if(list1!=null||list2!=null){
+            Node more=sumLinkedlist((list1==null?null:list1.next),(list2==null?null:list2.next),value>=10?1:0);
+            result.next=more;
+        }
+
+
+        return result;
+    }
+
+}

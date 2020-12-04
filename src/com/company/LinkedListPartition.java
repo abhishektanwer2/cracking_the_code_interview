@@ -1,3 +1,5 @@
+package com.company;
+
 import com.company.utils.Allfuctions;
 import com.company.utils.Node;
 
@@ -25,7 +27,6 @@ public class LinkedListPartition {
 
 
     }
-
     private static Node partionLinkedList(Node head, int i)
     {
 
@@ -40,11 +41,11 @@ public class LinkedListPartition {
                 left.next=new Node(head.data);
 
                 left=left.next;
-        }
-        else{
+            }
+            else{
                 right.next=new Node(head.data);
                 right=right.next;
-        }
+            }
             head=head.next;
 
         }
@@ -53,4 +54,5 @@ public class LinkedListPartition {
 
         return lefthead.next;
     }
+
 }
